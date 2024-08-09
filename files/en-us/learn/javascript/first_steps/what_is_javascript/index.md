@@ -116,7 +116,7 @@ They generally fall into two categories.
 
 **Third party APIs** are not built into the browser by default, and you generally have to grab their code and information from somewhere on the Web. For example:
 
-- The [Twitter API](https://developer.twitter.com/en/docs) allows you to do things like displaying your latest tweets on your website.
+- The [Twitter API](https://developer.x.com/en/docs) allows you to do things like displaying your latest tweets on your website.
 - The [Google Maps API](https://developers.google.com/maps/) and [OpenStreetMap API](https://wiki.openstreetmap.org/wiki/API) allows you to embed custom maps into your website, and other such functionality.
 
 > [!NOTE]
@@ -356,13 +356,13 @@ As with HTML and CSS, it is possible to write comments into your JavaScript code
 Comments are very useful, and you should use them often, particularly for larger applications.
 There are two types:
 
-- A single line comment is written after a double forward slash (//), e.g.
+- A single line comment is written after a double forward slash (`//`), e.g.
 
   ```js
   // I am a comment
   ```
 
-- A multi-line comment is written between the strings /\* and \*/, e.g.
+- A multi-line comment is written between the strings `/*` and `*/`, e.g.
 
   ```js
   /*
