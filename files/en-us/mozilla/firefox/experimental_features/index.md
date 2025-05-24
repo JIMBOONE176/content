@@ -828,7 +828,7 @@ The CSS {{cssxref("::details-content")}} pseudo-element enables you to style the
 
 Work has started on allowing [pseudo-elements](/en-US/docs/Web/CSS/Pseudo-elements) such as {{cssxref("::first-letter")}} and {{cssxref("::before")}} to be appended to [element-backed pseudo-elements](/en-US/docs/Web/CSS/Pseudo-elements#element-backed_pseudo-elements) such as {{cssxref("::details-content")}} and {{cssxref("::file-selector-button")}}.
 
-This will allow users to, for , example, style the first letter of the {{htmlElement("details")}} element by using the CSS selector `::details-content::first-letter` or add content before a {{HTMLElement("input") }} of [`type="file"`](/en-US/docs/Web/HTML/Reference/Elements/input/file) using the CSS selector `::file-selector-button::before`.
+This will allow users to, for , example, style the first letter of the {{htmlElement("details")}} element by using the CSS selector `::details-content::first-letter` or add content before an {{HTMLElement("input") }} of [`type="file"`](/en-US/docs/Web/HTML/Reference/Elements/input/file) using the CSS selector `::file-selector-button::before`.
 
 Currently only support for `::details-content::first-letter` can be parsed, using `@supports(::details-content::first-letter)` and the preference for [::details-content pseudo-element](#details-content_pseudo-element) needs enabling for this to be tested. The `::file-selector-button` pseudo-element is not yet marked as an element-based pseudo-element so there is no current way of testing this. ([Firefox bug 1953557](https://bugzil.la/1953557)).
 
@@ -917,21 +917,11 @@ An SVG viewer can use this information to conserve memory by discarding elements
 
 ### Temporal API
 
-The [Temporal object](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) aims to simplify working with dates and times in various scenarios, with built-in time zone and calendar representations ([Firefox bug 1912511](https://bugzil.la/1912511)).
-This includes:
+The `withCalendar()` method for [`PlainDate`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDate/withCalendar), [`PlainDateTime`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/PlainDateTime/withCalendar), and [`ZonedDateTime`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal/ZonedDateTime/withCalendar) objects within the [Temporal object](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) currently have the following [`calendar` types](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_calendar_types) disabled in all versions other than Firefox Nightly ([Firefox bug 1912511](https://bugzil.la/1912511) and [Firefox bug 1954138](https://bugzil.la/1954138)):
 
-- A **duration** (difference between two time points): {{jsxref("Temporal.Duration")}}
-- **Points in time**:
-  - As a unique instant in history:
-    - A timestamp: {{jsxref("Temporal.Instant")}}
-    - A date-time with a time zone: {{jsxref("Temporal.ZonedDateTime")}}
-  - **Time-zone-unaware date/time ("Plain")**:
-    - Date (year, month, day) + time (hour, minute, second, millisecond, nanosecond): {{jsxref("Temporal.PlainDateTime")}}
-      - Date (year, month, day): {{jsxref("Temporal.PlainDate")}}
-        - Year, month: {{jsxref("Temporal.PlainYearMonth")}}
-        - Month, day: {{jsxref("Temporal.PlainMonthDay")}}
-      - Time (hour, minute, second, millisecond, nanosecond): {{jsxref("Temporal.PlainTime")}}
-- **Now** (current time) as various class instances, or in a specific format: {{jsxref("Temporal.Now")}}
+- `islamic`
+- `islamic-rgsa`
+- `islamic-umalqura`
 
 <table>
   <thead>
@@ -944,7 +934,7 @@ This includes:
   <tbody>
     <tr>
       <th>Nightly</th>
-      <td>137</td>
+      <td>139</td>
       <td>Yes</td>
     </tr>
     <tr>
@@ -964,7 +954,7 @@ This includes:
     </tr>
     <tr>
       <th>Preference name</th>
-      <td colspan="2"><code>javascript.options.experimental.temporal</code></td>
+      <td colspan="2">N/A</td>
     </tr>
   </tbody>
 </table>
@@ -1188,6 +1178,47 @@ The affected methods and properties are: {{domxref("Element.innerHTML")}}, {{dom
     <tr>
       <th>Preference name</th>
       <td colspan="2"><code>dom.mutation_events.enabled</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### Removal of `beforescriptexecute` and `afterscriptexecute` events
+
+The non-standard events [`beforescriptexecute`](/en-US/docs/Web/API/Document/beforescriptexecute_event) and [`afterscriptexecute`](/en-US/docs/Web/API/Document/afterscriptexecute_event) on the {{domxref("Document")}} interface, and [`afterscriptexecute`](/en-US/docs/Web/API/Element/afterscriptexecute_event) and [`beforescriptexecute`](/en-US/docs/Web/API/Element/beforescriptexecute_event) on the {{domxref("Element")}} interface are on the path to removal. They have been disabled in Nightly.
+([Firefox bug 1954685](https://bugzil.la/1954685)).
+
+<table>
+  <thead>
+    <tr>
+      <th>Release channel</th>
+      <th>Version added</th>
+      <th>Enabled by default?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nightly</th>
+      <td>139</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>Developer Edition</th>
+      <td>139</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Beta</th>
+      <td>139</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Release</th>
+      <td>139</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Preference name</th>
+      <td colspan="2"><code>dom.events.script_execute.enable</code></td>
     </tr>
   </tbody>
 </table>
@@ -1970,6 +2001,46 @@ Notifications have the [`requireInteraction`](/en-US/docs/Web/API/Notification/r
   </tbody>
 </table>
 
+### View Transition API
+
+The [View Transition API](/en-US/docs/Web/API/View_Transition_API) provides a mechanism for easily creating animated transitions between different website views. This is especially useful for [SPAs (single-page applications)](/en-US/docs/Glossary/SPA). ([Firefox bug 1950759](https://bugzil.la/1950759)).
+
+<table>
+  <thead>
+    <tr>
+      <th>Release channel</th>
+      <th>Version changed</th>
+      <th>Enabled by default?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nightly</th>
+      <td>139</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <th>Developer Edition</th>
+      <td>—</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>Beta</th>
+      <td>—</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>Release</th>
+      <td>—</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <th>Preference name</th>
+      <td colspan="2">N/A</td>
+    </tr>
+  </tbody>
+</table>
+
 ## Security and privacy
 
 ### Block plain text requests from Flash on encrypted pages
@@ -2105,7 +2176,7 @@ Note that supported policies can be set through the [`allow`](/en-US/docs/Web/HT
 
 ### Privacy Preserving Attribution API (PPA)
 
-[PPA API](https://support.mozilla.org/en-US/kb/privacy-preserving-attribution) provides an alternative to user tracking for ad attribution using the new `navigator.privateAttribution` object with `saveImpression()` and `measureConversion()` methods. Read more about PPA [in the explainer](https://github.com/mozilla/explainers/tree/main/ppa-experiment). This experiment can be enabled for websites via [origin trial](https://wiki.mozilla.org/Origin_Trials) or in the browser by setting the preference to `1`. ([Firefox bug 1900929](https://bugzil.la/1900929)).
+[PPA API](https://support.mozilla.org/en-US/kb/privacy-preserving-attribution) provides an alternative to user tracking for ad attribution using the new `navigator.privateAttribution` object with `saveImpression()` and `measureConversion()` methods. Read more about PPA [in the original explainer](https://github.com/mozilla/explainers/tree/main/archive/ppa-experiment) and the [proposed spec](https://w3c.github.io/ppa/). This experiment can be enabled for websites via [origin trial](https://wiki.mozilla.org/Origin_Trials) or in the browser by setting the preference to `1`. ([Firefox bug 1900929](https://bugzil.la/1900929)).
 
 <table>
   <thead>
