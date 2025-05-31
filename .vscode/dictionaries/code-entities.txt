@@ -218,6 +218,7 @@ dom.webnotifications.requireuserinteraction
 dom.webshare
 domxref
 downdiagonalstrike
+downloadprogress
 DPAD
 DRAGDDROP
 dragdrop
@@ -287,6 +288,7 @@ gfx.offscreencanvas
 Glat
 globoff
 Gloc
+glossarysidebar
 gonm
 GPOS
 Grek
@@ -558,6 +560,7 @@ oncurrententrychange
 oncurrentscreenchange
 ondequeue
 ondispose
+ondownloadprogress
 onefive
 ongesturestart
 onnavigate
@@ -567,6 +570,7 @@ onpagereveal
 onpageswap
 onpaymentrequest
 onpointerrawupdate
+onprerenderingchange
 onrtctransform
 onsamplebufferfull
 onscreenschange
@@ -653,6 +657,7 @@ propstat
 PUNCHTHROUGH
 purgecaches
 PVRTC
+pwasidebar
 pwid
 pythonanywhere
 pyxpidl

@@ -330,7 +330,7 @@ Listen to these events using `addEventListener()` or by assigning an event liste
   - : Fired when a script has been executed.
 - {{domxref("Element/beforeinput_event", "beforeinput")}}
   - : Fired when the value of an input element is about to be modified.
-- {{domxref("Element/beforematch_event", "beforematch")}} {{Experimental_Inline}}
+- {{domxref("Element/beforematch_event", "beforematch")}}
   - : Fires on an element that is in the [_hidden until found_](/en-US/docs/Web/HTML/Reference/Global_attributes/hidden) state, when the browser is about to reveal its content because the user has found the content through the "find in page" feature or through fragment navigation.
 - {{domxref("Element/beforescriptexecute_event","beforescriptexecute")}} {{Non-standard_Inline}} {{deprecated_inline}}
   - : Fired when a script is about to be executed.
@@ -462,7 +462,7 @@ Listen to these events using `addEventListener()` or by assigning an event liste
   - : Fired when a pointer is moved out of the _hit test_ boundaries of an element (among other reasons).
 - {{domxref("Element/pointerover_event", "pointerover")}}
   - : Fired when a pointer is moved into an element's hit test boundaries.
-- {{domxref("Element/pointerrawupdate_event", "pointerrawupdate")}} {{Experimental_Inline}}
+- {{domxref("Element/pointerrawupdate_event", "pointerrawupdate")}}
   - : Fired when a pointer changes any properties that don't fire {{domxref("Element/pointerdown_event", "pointerdown")}} or {{domxref("Element/pointerup_event", "pointerup")}} events.
 - {{domxref("Element/pointerup_event", "pointerup")}}
   - : Fired when a pointer is no longer active.
